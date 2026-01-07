@@ -1,113 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人</title>
+    <title>心灵花园 - 服务板块</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", 微软雅黑, sans-serif;
+            font-family: "Microsoft YaHei", sans-serif;
         }
-
         body {
+            background: #fff;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px 0;
+        }
+        /* 首页大图 */
+        .banner {
+            background: #3b75c8;
+            color: #fff;
+            text-align: center;
+            padding: 50px 0;
+            font-size: 24px;
+            margin: 0 auto 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+        /* 导航栏 */
+        .nav {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nav-btn {
+            padding: 8px 25px;
+            border: 2px solid #3b75c8;
+            border-radius: 4px;
+            background: #fff;
+            color: #3b75c8;
+            font-size: 18px;
+            text-align: center;
+            min-width: 120px;
+            text-decoration: none;
+        }
+        .nav-btn.active {
+            background: #3b75c8;
+            color: #fff;
+        }
+        /* 服务表格 */
+        .service-table {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .service-table th, .service-table td {
+            border: 1px solid #000;
+            padding: 20px;
+            text-align: center;
+            vertical-align: top;
+        }
+        .service-table th {
+            font-size: 20px;
+            font-weight: bold;
+            background: #f5f5f5;
+        }
+        .service-table p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .service-table .img-note {
+            font-size: 16px;
+            color: #666;
+            font-style: italic;
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .service-table {
+                font-size: 14px;
+            }
+            .service-table th, .service-table td {
+                padding: 10px;
+            }
+        }
+		 body {
             min-height: 100vh;
             margin: 0;
             padding: 20px;
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
         }
-
         
-        .header-img {
-            width: 100%;
-            height: 400px; 
-            overflow: hidden;
-        }
-
-        .header-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-        }
-
-        
-        .nav-bar {
-            background-color: #4a90e2; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin: 20px 0; 
-        }
-
-        .nav-item {
-            color: white;
-            text-decoration: none;
-            padding: 15px 25px;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-item:hover {
-            background-color: #357abd; 
-            border-radius: 4px;
-        }
-
-        
-        .firework {
+        /* 漂浮表情样式：绝对定位+动画 */
+        .emoji {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            pointer-events: none;
-            animation: explode 1.5s ease-out forwards;
+            font-size: 30px;
+            pointer-events: none; /* 避免遮挡页面元素的点击事件 */
+            animation: float 2s ease-out forwards; /* forwards：保持动画最后一帧状态 */
         }
-
-        @keyframes explode {
+        
+        /* 
+         * 漂浮动画：
+         * - 方向：向上漂浮
+         * - 时长：2秒
+         * - 缓动：ease-out（先快后慢，更自然）
+         */
+        @keyframes float {
             0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(5);
-                opacity: 0.8;
+                transform: translate(-50%, -50%); /* 居中到点击坐标 */
+                opacity: 1; /* 完全可见 */
             }
             100% {
-                transform: scale(10);
-                opacity: 0;
-            }
-        }
-
-        
-        @media (max-width: 1000px) {
-            .nav-bar {
-                flex-direction: column;
-            }
-            .nav-item {
-                width: 100%;
-                text-align: center;
-                padding: 12px 0;
-            }
-            .header-img {
-                height: 240px; 
+                transform: translate(-50%, -100px); /* 向上移动100px */
+                opacity: 0; /* 完全透明 */
             }
         }
     </style>
 </head>
 <body>
-	
-    <nav class="nav-bar">
-        <a href="https://rain1943.github.io/xinlinghy/" class="nav-item">首页</a>
-        <a href="https://rain1943.github.io/xlhyService-Sector/" class="nav-item">服务板块</a>
-        <a href="https://rain1943.github.io/xlhyNews/" class="nav-item">活动资讯</a>
-        <a href="https://rain1943.github.io/about-us/" class="nav-item">关于我们</a>
-    </nav>
-
-    <h6>作者的GitHub账号<a href="https://github.com/rain1943">查看链接</a>,觉得网页不错的关注一下Ciallo～ (∠・ω< )⌒★(有建议可以提)</h6>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <a href="https://rain1943.github.io/xinlinghy/" class="nav-btn">首页</a>
+        <a href="https://rain1943.github.io/xlhyService-Sector/" class="nav-btn active">服务板块</a>
+        <a href="https://rain1943.github.io/xlhyNews/" class="nav-btn">我们的故事</a>
+        <a href="#" class="nav-btn">心理小站</a>
+        <a href="https://rain1943.github.io/about-us/" class="nav-btn">联系我们</a>
+    </div>
+	<p><div class="intro-title"><center>招募对象</div></p>
+	<p><center>1.未满18周岁；</p>
+		<p><center>2.处于稳定状态（经医生评估过服药中且情绪稳定或长期请假/休学状态的抑郁、厌学青少年）；</p>
+	<p><center>3.本人及家属愿配合、有参与改变的意愿（这一点很关键！）</p>
+	<p></p>
+	<p><div class="intro-title"><center>报名方式</p>
+		<p><center>1.扫描下方二维码，参与报名</p>
+    <p><center>2.本项目接受医院、区镇、学校、社会组织等机构转介</p>
+		<p><center>3.联系人：张社工 18720011459（微信同号）</p>
+<p><center>4.服务点:</p>
+		<p><center>①城北家庭服务中心（花园路1389号）</p>
+<p><center>②周市镇小泾村美丽菜园（华杨北路888号）</p>
+		<img src="image/图片2.png">
+    <P><h6>作者的GitHub账号<a href="https://github.com/rain1943">查看链接</a>,觉得网页不错的关注一下Ciallo～ (∠・ω< )⌒★</h6></P>
 
 
     <!--试试↑↑↓↓←→←→-->    
@@ -175,3 +213,4 @@
     </script>
 </body>
 </html>
+
